@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jules - Login/Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Jules Chat</h1>
+        </header>
+        <main id="auth-forms">
+            <div id="login-form-container">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div>
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" name="username" required>
+                    </div>
+                    <div>
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p id="loginError" class="error-message" aria-live="assertive"></p>
+                </form>
+                <p>No account? <a href="#" id="showRegister">Register here</a></p>
+            </div>
+
+            <div id="register-form-container" style="display: none;">
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <div>
+                        <label for="registerUsername">Username</label>
+                        <input type="text" id="registerUsername" name="username" required>
+                    </div>
+                    <div>
+                        <label for="registerPassword">Password (min. 6 characters)</label>
+                        <input type="password" id="registerPassword" name="password" required minlength="6">
+                    </div>
+                    <button type="submit">Register</button>
+                    <p id="registerMessage" class="message" aria-live="polite"></p>
+                </form>
+                <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Jules Chat App</p>
+        </footer>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

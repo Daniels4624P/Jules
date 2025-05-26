@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jules Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container chat-container">
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <h3>Chats</h3>
+                <input type="text" id="searchInput" placeholder="Search chats or users...">
+                <button id="newChatButton">New Chat</button>
+            </div>
+            <ul id="chatList">
+                <!-- Chat items will be populated here -->
+            </ul>
+            <button id="logoutButton">Logout</button>
+        </aside>
+
+        <main id="chatArea">
+            <header id="chatHeaderBar">
+                <h2 id="chatHeader">Select a chat</h2>
+            </header>
+            <div id="messages">
+                <!-- Messages will be populated here -->
+            </div>
+            <div id="typingIndicator">
+                <!-- Typing indicator will be shown here -->
+            </div>
+            <footer id="messageInputArea">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendMessageButton">Send</button>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Modal for creating a new chat -->
+    <div id="newChatModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Create New Chat</h3>
+            <label for="otherUserIds">Enter User ID(s) (comma-separated for group):</label>
+            <input type="text" id="otherUserIds" placeholder="e.g., 2 or 2,3">
+            <label for="chatName">Chat Name (optional, for group chat):</label>
+            <input type="text" id="chatName" placeholder="e.g., Project Group">
+            <button id="createChatConfirmButton">Create Chat</button>
+            <p id="newChatMessage" class="message"></p>
+        </div>
+    </div>
+
+    <script src="js/chat.js"></script>
+</body>
+</html>
