@@ -1,0 +1,367 @@
+/* General Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Default max-width, overridden for chat */
+}
+
+header h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Auth Forms (Login/Register) */
+#auth-forms div {
+    margin-bottom: 15px;
+}
+
+#auth-forms label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#auth-forms input[type="text"],
+#auth-forms input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#auth-forms button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#auth-forms button:hover {
+    background-color: #0056b3;
+}
+
+#auth-forms p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#auth-forms a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#auth-forms a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+    min-height: 1.2em; /* Reserve space to prevent layout shifts */
+}
+
+.message {
+    color: green;
+    font-size: 0.9em;
+    text-align: center;
+    min-height: 1.2em;
+}
+
+
+/* Chat Page Layout */
+.chat-container {
+    display: flex;
+    max-width: 1000px; /* Wider for chat layout */
+    height: calc(100vh - 40px); /* Full viewport height minus padding */
+    overflow: hidden; /* Prevent scrollbars on container itself */
+}
+
+#sidebar {
+    width: 30%;
+    min-width: 250px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    margin-bottom: 15px;
+}
+
+.sidebar-header h3 {
+    margin-bottom: 10px;
+}
+
+#searchInput, #newChatButton {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#newChatButton {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+#newChatButton:hover {
+    background-color: #1e7e34;
+}
+
+
+#chatList {
+    list-style: none;
+    overflow-y: auto; /* Scroll for chat list */
+    flex-grow: 1;
+}
+
+#chatList li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatList li:hover, #chatList li.active {
+    background-color: #e9ecef;
+}
+
+#chatList li .chat-name {
+    font-weight: bold;
+}
+#chatList li .chat-preview {
+    font-size: 0.9em;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+#logoutButton {
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: auto; /* Pushes to the bottom */
+}
+#logoutButton:hover {
+    background-color: #c82333;
+}
+
+#chatArea {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+#chatHeaderBar {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+#chatHeaderBar h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto; /* Scroll for messages */
+    display: flex;
+    flex-direction: column-reverse; /* Newest messages at the bottom */
+}
+
+.message-item {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message-item.sent {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message-item.received {
+    background-color: #e9ecef;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message-sender {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-bottom: 3px;
+    color: #555; /* Darker for received, could be lighter for sent */
+}
+.message-item.sent .message-sender {
+    color: #f0f0f0; /* Lighter sender name for sent messages */
+    text-align: right;
+}
+
+
+.message-content {
+    font-size: 1em;
+}
+
+.message-timestamp {
+    font-size: 0.75em;
+    color: #777;
+    margin-top: 4px;
+    text-align: right;
+}
+.message-item.sent .message-timestamp {
+    color: #eee;
+}
+
+
+#typingIndicator {
+    padding: 5px 15px;
+    font-style: italic;
+    color: #777;
+    height: 2em; /* Reserve space */
+}
+
+#messageInputArea {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+#messageInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#sendMessageButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#sendMessageButton:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.modal-content button:hover {
+    background-color: #1e7e34;
+}
+
+.close-button {
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-button:hover {
+    color: #cc0000;
+}
